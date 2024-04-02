@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  php:
+    image: php
+    build:
+      context: ./php/
+    ports:
+      - "9901:9501"
+    volumes:
+      - ./code/:/opt/www/ #本地项目目录映射到php容器目录（必须映射）
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
